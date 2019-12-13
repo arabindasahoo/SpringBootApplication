@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>UserLoginPage</title>
+	<style type="text/css">
+	.error
+	{
+	color : red;
+	font-size : 15px;
+	}
+	
+	</style>
+</head>
+<body>
+	<div align="center">
+	<h2 th:text="${message}"></h2>
+	<h3 th:text="${errorMessage}" th:class="'error'"></h3>
+	<hr>
+	
+		<form action="#" th:action="@{/login/loginUser}"
+			th:object="${userLogin}" method="post">
+			<table cellpadding="10">
+				<tr>
+					<td align="right">User Email Id:</td>
+					<td><input type="text" th:field="*{email}"
+						placeholder="Enter Email"> <label
+						th:if="${#fields.hasErrors('email')}" th:class="'error'"
+						th:text="#{login.email}"></label></td>
+				</tr>
+				<tr>
+					<td align="right">User Password:</td>
+					<td><input type="password" th:field="*{password}" placeholder="Enter Password"/>
+				<label th:if="${#fields.hasErrors('password')}"
+						th:class="'error'" th:text="#{login.password}"></label>
+						</td>
+				</tr>
+				<tr>
+					<td align="center" colspan="2"><input type="submit"
+						value="LOGIN USER"> <input type="reset" value="RESET FORM">
+					</td>
+				</tr>
+			</table>
+
+		</form>
+
+	</div>
+
+</body>
+</html>

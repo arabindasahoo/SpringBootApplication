@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>ADMIN REGISTER PAGE</title>
+<style type="text/css">
+.error {
+	color: red;
+	font-size: 15px;
+}
+</style>
+
+</head>
+<body>
+	<div align="center">
+		<h3 th:text="${message}"></h3>
+		<hr>
+
+		<form action="#" th:action="@{/admin/createAdmin}"
+			th:object="${admin}" method="post">
+
+			<table cellpadding="8">
+				<tr>
+					<td align="right">NAME</td>
+					<td><input type="text" th:field="*{name}" placeholder="Enter Name"/> 
+					<label th:if="${#fields.hasErrors('name')}" th:class="'error'" th:text="#{error.admin.name}"></label>
+					</td>
+				</tr>
+
+				<tr>
+					<td align="right">EMAIL</td>
+					<td><input type="text" th:field="*{email}" placeholder="Enter Email"/> 
+					<label th:if="${#fields.hasErrors('email')}" th:class="'error'" th:text="#{error.admin.email}"></label></td>
+				</tr>
+
+				<tr>
+					<td align="right">PHONE</td>
+					<td><input type="text" th:field="*{phone}" placeholder="Enter Phone"/> 
+					<label th:if="${#fields.hasErrors('phone')}" th:class="'error'" th:text="#{error.admin.phone}"></label></td>
+				</tr>
+
+				<tr>
+					<td align="right">GENDER</td>
+					<td>
+					<input type="radio" value="MALE" th:field="*{gender}">MALE
+					<input type="radio" value="FEMALE" th:field="*{gender}">FEMALE
+					<input type="radio" value="OTHERS" th:field="*{gender}">OTHERS 
+					<label th:if="${#fields.hasErrors('gender')}" th:class="'error'" th:text="#{error.admin.gender}"></label>
+					</td>
+				</tr>
+
+				<tr>
+					<td align="right">DATE OF BIRTH</td>
+					<td><input type="text" th:field="*{dob}" placeholder="Enter DOB"/> 
+					<label th:if="${#fields.hasErrors('dob')}" th:class="'error'" th:text="#{error.admin.dob}"></label></td>
+				</tr>
+
+				<tr>
+					<td align="right">DATE OF JOINING</td>
+					<td><input type="text" th:field="*{doj}" placeholder="Enter DOJ"/> 
+					<label th:if="${#fields.hasErrors('doj')}" th:class="'error'" th:text="#{error.admin.doj}"></label></td>
+				</tr>
+
+				<tr>
+					<td align="right">PASSWORD</td>
+					<td><input type="password" th:field="*{password}" placeholder="Enter Password"/> 
+					<label th:if="${#fields.hasErrors('password')}" th:class="'error'" th:text="#{error.admin.password}"></label></td>
+				</tr>
+
+				<tr>
+					<td align="right">IS MARRIED</td>
+					<td>
+					<select th:field="*{maritalStatus}">
+					<option th:each="status : ${status}" th:value="${status}" th:text="${status}"></option>
+					</select>
+					<label th:if="${#fields.hasErrors('maritalStatus')}" th:class="'error'" th:text="#{error.user.status}"></label>
+					</td>
+				</tr>
+
+				<tr>
+					<td align="right">COUNTRY</td>
+					<td>
+					<select th:field="*{country}">
+					<option th:each="country : ${country}" th:value="${country}" th:text="${country}"></option>
+					</select>
+					</td>
+				</tr>
+
+				<tr>
+					<td colspan="2" align="center"><input type="submit" value="REGISTER ADMIN">
+					<input type="reset" value="RESET FORM PAGE">
+					 </td>
+				</tr>
+			</table>
+
+
+
+		</form>
+
+	</div>
+</body>
+</html>

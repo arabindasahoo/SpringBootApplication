@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Application Home Page</title>
+</head>
+<body>
+		<div align="center">
+		<h2 th:text="${message}"></h2><br><hr>
+		<a th:href="@{/adminHome}">GO TO ADMIN HOME PAGE</a><br><br>
+		<a th:href="@{/users/getHome}">GO TO USER HOME PAGE</a>
+		</div>
+</body>
+</html>
