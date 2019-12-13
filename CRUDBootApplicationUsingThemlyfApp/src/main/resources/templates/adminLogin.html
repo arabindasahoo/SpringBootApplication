@@ -1,10 +1,46 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>ADMIN LOGIN PAGE</title>
+<style type="text/css">
+.error
+{
+color : red;
+font-size : 15px;
+}
+
+</style>
+
 </head>
 <body>
-
+		<div align="center">
+		<h3 th:text="${message}"></h3><br>
+		<hr>
+		
+		<form action="#" th:action="@{/adminLogin/login}" th:object="${adminLogin}" method="post">
+		<table cellpadding="8">
+		<tr>
+		<td align="right">ENTER EMAIL</td>
+		<td><input type="text" th:field="*{email}"> 
+		<label th:if="${#fields.hasErrors('email')}" th:class="'error'" th:text="#{error.admin.email}"></label>
+		</td>
+		</tr>
+		
+		<tr>
+		<td align="right">ENTER PASSWORD</td>
+		<td>
+		<input type="password" th:field="*{password}">
+		<label th:if="${#fields.hasErrors('password')}" th:class="'error'" th:text="#{error.admin.password}"></label>
+		</td>
+		</tr>
+		
+		<tr>
+		<td><input type="submit" value="ADMIN LOGIN NOW"> </td>
+		</tr>
+		</table>
+		
+		</form>
+		</div>
 </body>
 </html>

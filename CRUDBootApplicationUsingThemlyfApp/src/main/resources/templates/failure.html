@@ -2,13 +2,14 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>SUCCESS PAGE</title>
+<title>ERROR PAGE</title>
 </head>
 <body>
-<div align="center">
-	<h2>SUCCESS PAGE</h2>
+		<div align="center">
+		<h2>ERROR PAGE </h2><hr>
 		<h3 th:text="${message}"></h3>
-		<a th:href="@{/}">Go To Home</a>
+		<a th:href="@{/}">Back to Login Page</a>
+		
 		</div>
 </body>
 </html>

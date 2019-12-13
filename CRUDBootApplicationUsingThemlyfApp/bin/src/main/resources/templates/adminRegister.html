@@ -71,10 +71,9 @@
 					<td align="right">IS MARRIED</td>
 					<td>
 					<select th:field="*{maritalStatus}">
-					<option value="">Is Married?</option>
 					<option th:each="status : ${status}" th:value="${status}" th:text="${status}"></option>
 					</select>
-					<label th:if="${#fields.hasErrors('maritalStatus')}" th:class="'error'" th:text="#{error.admin.status}"></label>
+					<label th:if="${#fields.hasErrors('maritalStatus')}" th:class="'error'" th:text="#{error.user.status}"></label>
 					</td>
 				</tr>
 
@@ -82,10 +81,8 @@
 					<td align="right">COUNTRY</td>
 					<td>
 					<select th:field="*{country}">
-					<option value="" selected="selected">Select Country</option>
 					<option th:each="country : ${country}" th:value="${country}" th:text="${country}"></option>
 					</select>
-					<label th:if="${#fields.hasErrors('country')}" th:class="'error'" th:text="#{error.user.country}"></label>
 					</td>
 				</tr>
 
