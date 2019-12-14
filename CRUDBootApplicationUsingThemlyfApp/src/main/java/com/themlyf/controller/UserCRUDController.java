@@ -27,15 +27,6 @@ public class UserCRUDController {
 		this.userService = userService;
 	}
 	
-
-	@GetMapping(value = "/getHome")
-	public ModelAndView getHome()
-	{
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("userHomePage");
-		return mav;
-	}
-	
 	@GetMapping(value = "/registerPage")
 	public ModelAndView getResiterPage(Model model)
 	{

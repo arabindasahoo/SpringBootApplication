@@ -23,7 +23,7 @@ public class HomeController {
 	{
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("adminHomePage");
-		mav.addObject("message", "WELCOME ADMIN HOME PAGE");
+		mav.addObject("message", "WELCOME TO ADMIN HOME PAGE");
 		return mav;
 	}
 	
@@ -31,6 +31,7 @@ public class HomeController {
 	public ModelAndView getUserHomePage()
 	{
 		ModelAndView mav = new ModelAndView();
+		mav.addObject("message", "WELCOME TO USER HOME PAGE");
 		mav.setViewName("userHomePage");
 		return mav;
 	}

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.themlyf.model.Admin;
+import com.themlyf.model.User;
 import com.themlyf.service.AdminServiceDAO;
 
 @RestController
@@ -69,6 +70,21 @@ public class AdminCRUDController {
 			}
 		}
 	}
+	
+	@GetMapping(value = "/showAllUser")
+	public ModelAndView getAllUser()
+	{
+		ModelAndView mav = new ModelAndView();
+		List<User> user = adminService.getAllUser();
+		mav.addObject("userList", user);
+		for (User user2 : user) {
+		System.out.println(user2);
+		}
+		mav.addObject("message", "ALL USER LIST HERE");
+		mav.setViewName("AlluserList");
+		return mav;
+	}
+	
 	
 	public List<String> getCountries()
 	{

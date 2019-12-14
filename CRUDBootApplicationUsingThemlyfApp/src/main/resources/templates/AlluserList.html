@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.or">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+		<div align="right">
+		<a th:href="@{/adminLogin/logout}">Admin Logout</a>
+		</div>
+	<div align="center">
+		<h2 th:text="${message}"></h2>
+		
+		<table cellpadding="8" cellspacing="5">
+			<tr>
+				<th>ID</th>
+				<th>NAME</th>
+				<th>EMAIL</th>
+				<th>PHONE</th>
+				<th>GENDER</th>
+				<th>DATE OF BIRTH</th>
+				<th>DATE OF JOINING</th>
+				<th>COUNTRY</th>	
+				<th>MARRITAL STATUS</th>
+			</tr>
+			<tr th:each="user : ${userList}">
+				<td th:text="${user.id}"></td>
+				<td th:text="${user.name}"></td>
+				<td th:text="${user.email}"></td>
+				<td th:text="${user.phone}"></td>
+				<td th:text="${user.gender}"></td>
+				<td th:text="${user.dob}"></td>
+				<td th:text="${user.doj}"></td>
+				<td th:text="${user.country}"></td>
+				<td th:text="${user.maritalStatus}"></td>
+			</tr>
+		</table>
+
+	</div>
+</body>
+</html>

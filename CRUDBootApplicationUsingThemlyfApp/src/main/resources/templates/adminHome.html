@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>ADMIN DASH HOME PAGE</title>
 </head>
 <body>
-
+		<div align="right">
+		<a th:href="@{/adminLogin/logout}">Admin Logout</a>
+		</div>
+		<div align="center">
+		<h3 th:text="${message}"></h3><hr><br>
+		
+		<a th:href="@{/admin/showAllUser}">Click Here To View All User</a>
+		
+		
+		</div>
 </body>
 </html>

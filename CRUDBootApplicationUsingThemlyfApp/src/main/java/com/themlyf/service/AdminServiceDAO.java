@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.themlyf.dao.AdminDAO;
+import com.themlyf.dao.UserDAO;
 import com.themlyf.model.Admin;
+import com.themlyf.model.User;
 
 @Service("adminService")
 public class AdminServiceDAO {
@@ -16,6 +18,9 @@ public class AdminServiceDAO {
 	public void setAdminDAO(AdminDAO adminDAO) {
 		this.adminDAO = adminDAO;
 	}
+	
+	@Autowired
+	private UserDAO userDAO;
 	
 	public boolean checkAdminExist()
 	{
@@ -47,5 +52,10 @@ public class AdminServiceDAO {
 			}
 		}
 		return false;
+	}
+
+	public List<User> getAllUser() {
+		
+		return userDAO.findAll();
 	}
 }

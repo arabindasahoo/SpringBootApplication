@@ -1,5 +1,6 @@
 package com.themlyf.controller;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class AdminCRUDLoginController {
 	}
 	
 	@PostMapping(value = "/login")
-	public ModelAndView loginAdmin(@Valid AdminLogin login,BindingResult result)
+	public ModelAndView loginAdmin(@Valid AdminLogin login,BindingResult result,HttpSession session)
 	{
 		ModelAndView mav = new ModelAndView();
 		if(result.hasErrors())
@@ -51,6 +52,8 @@ public class AdminCRUDLoginController {
 				if(adminServiceDAO.authenicateAdmin(email,password))
 				{
 					mav.setViewName("adminHome");
+					session.setAttribute("email", email);
+					session.setAttribute("password", password);
 					mav.addObject("message", "WELCOME TO ADMIN HOME PAGE");
 					return mav;
 				}
@@ -70,5 +73,22 @@ public class AdminCRUDLoginController {
 			}
 		}
 	}
+	
+	@GetMapping(value = "/logout")
+	public ModelAndView logoutAdmin(HttpSession session)
+	{
+		ModelAndView mav = new ModelAndView();
+		session.removeAttribute("email");
+		session.removeAttribute("password");
+		session.invalidate();
+		mav.addObject("adminLogin", new AdminLogin());
+		mav.addObject("message", "WELCOME TO ADMIN LOGIN PAGE");
+		mav.setViewName("adminLogin");
+		return mav;
+	}
+	
+	
+	
+	
 
 }
